@@ -28,7 +28,7 @@ Exatone taught us that great products are built by obsessing over data foundatio
   },
   {
     id: 4,
-    title: "Freshio (Dhaara)",
+    title: "Freso (Dhaara)",
     description: "A scalable B2B logistics and delivery management platform.",
     tags: ["Web App", "Mobile App", "Logistics", "B2B"],
     image: "/images/projects/fresho.jpeg",
