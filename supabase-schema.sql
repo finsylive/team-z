@@ -6,6 +6,7 @@ CREATE TABLE IF NOT EXISTS client_inquiries (
   phone TEXT NOT NULL,
   project_name TEXT NOT NULL,
   services TEXT[] NOT NULL, -- Array of selected services
+  preferred_timing TEXT, -- Preferred timing for a meet (morning, afternoon, evening, flexible)
   additional_notes TEXT,
   status TEXT DEFAULT 'new' CHECK (status IN ('new', 'contacted', 'in_progress', 'completed', 'archived')),
   created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW(),
@@ -66,6 +67,7 @@ SELECT
   phone,
   project_name,
   services,
+  preferred_timing,
   status,
   created_at,
   updated_at,

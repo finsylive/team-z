@@ -25,6 +25,7 @@ export default function GetStartedDialog({
     phone: "",
     projectName: "",
     services: [] as string[],
+    preferredTiming: "",
     additionalNotes: "",
   });
 
@@ -42,7 +43,7 @@ export default function GetStartedDialog({
   };
 
   const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
   ) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
@@ -64,6 +65,7 @@ export default function GetStartedDialog({
           phone: formData.phone,
           projectName: formData.projectName,
           services: formData.services,
+          preferredTiming: formData.preferredTiming,
           additionalNotes: formData.additionalNotes,
         }),
       });
@@ -81,6 +83,7 @@ export default function GetStartedDialog({
         phone: "",
         projectName: "",
         services: [],
+        preferredTiming: "",
         additionalNotes: "",
       });
       setShowThankYou(true);
@@ -129,10 +132,10 @@ export default function GetStartedDialog({
               Thank You!
             </h2>
             <p className="text-white/70 text-lg mb-6 leading-relaxed">
-              We've received your inquiry and will get back to you soon.
+              We've received your inquiry and we will reach out to you soon.
             </p>
             <p className="text-white/60 text-sm mb-8">
-              Our team will review your project details and contact you within 24-48 hours.
+              Our team will review your project details and contact you at your preferred timing.
             </p>
             <button
               onClick={handleClose}
@@ -274,6 +277,29 @@ export default function GetStartedDialog({
                 Please select at least one service
               </p>
             )}
+          </div>
+
+          {/* Preferred Timing */}
+          <div>
+            <label
+              htmlFor="preferredTiming"
+              className="block text-sm font-medium text-white/80 mb-2"
+            >
+              Preferred Timing for a Meet
+            </label>
+            <select
+              id="preferredTiming"
+              name="preferredTiming"
+              value={formData.preferredTiming}
+              onChange={handleChange}
+              className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-[#a8f348] focus:border-transparent transition-all"
+            >
+              <option value="" className="bg-[#1a1a1a]">Select preferred timing</option>
+              <option value="morning" className="bg-[#1a1a1a]">Morning (9 AM - 12 PM)</option>
+              <option value="afternoon" className="bg-[#1a1a1a]">Afternoon (12 PM - 5 PM)</option>
+              <option value="evening" className="bg-[#1a1a1a]">Evening (5 PM - 8 PM)</option>
+              <option value="flexible" className="bg-[#1a1a1a]">Flexible / Any time</option>
+            </select>
           </div>
 
           {/* Additional Notes */}
