@@ -51,3 +51,5 @@ next-env.d.ts
 temp-nextjs/
 tmp/
 *.log
+.cursor/
+.sql

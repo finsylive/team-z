@@ -1,9 +1,10 @@
 "use client";
 
-import { ChevronDown, Menu, X } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
+import GetStartedDialog from "./GetStartedDialog";
 
 const navLinks = [
   { label: "Home", href: "/#home" },
@@ -13,6 +14,7 @@ const navLinks = [
 
 export default function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isDialogOpen, setIsDialogOpen] = useState(false);
 
   return (
     <>
@@ -42,15 +44,12 @@ export default function Navbar() {
         </ul>
 
         <div className="flex items-center gap-6 max-md:hidden">
-          <Link href="#" className="text-white text-[0.95rem]">
-            Sign in
-          </Link>
-          <Link
-            href="#"
+          <button
+            onClick={() => setIsDialogOpen(true)}
             className="bg-[#a8f348] text-[#1a1a1a] px-7 py-3 rounded-[30px] font-semibold text-[0.95rem] transition-transform duration-200 hover:scale-105"
           >
-            Sign Up
-          </Link>
+            Get Started
+          </button>
         </div>
 
         {/* Mobile Menu Toggle */}
@@ -87,23 +86,24 @@ export default function Navbar() {
           </ul>
 
           <div className="flex flex-col gap-4 w-full max-w-[200px]">
-            <Link
-              href="#"
-              className="text-white text-center text-lg"
-              onClick={() => setIsMobileMenuOpen(false)}
+            <button
+              onClick={() => {
+                setIsMobileMenuOpen(false);
+                setIsDialogOpen(true);
+              }}
+              className="bg-[#a8f348] text-[#1a1a1a] px-7 py-3 rounded-[30px] font-semibold text-lg text-center transition-transform duration-200 hover:scale-105"
             >
-              Sign in
-            </Link>
-            <Link
-              href="#"
-              className="bg-[#a8f348] text-[#1a1a1a] px-7 py-3 rounded-[30px] font-semibold text-lg text-center"
-              onClick={() => setIsMobileMenuOpen(false)}
-            >
-              Sign Up
-            </Link>
+              Get Started
+            </button>
           </div>
         </div>
       )}
+
+      {/* Get Started Dialog */}
+      <GetStartedDialog
+        isOpen={isDialogOpen}
+        onClose={() => setIsDialogOpen(false)}
+      />
     </>
   );
 }
