@@ -2,9 +2,13 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
+import { useState } from "react";
 import Navbar from "./Navbar";
+import GetStartedDialog from "./GetStartedDialog";
 
 export default function HeroSection() {
+  const [isDialogOpen, setIsDialogOpen] = useState(false);
+
   return (
     <div
       id="home"
@@ -42,12 +46,12 @@ export default function HeroSection() {
           transition={{ duration: 0.6, delay: 0.4 }}
           className="flex gap-5 max-md:flex-col max-md:w-full max-md:max-w-[300px]"
         >
-          <Link
-            href="mailto:teamzments@gmail.com"
+          <button
+            onClick={() => setIsDialogOpen(true)}
             className="bg-[#a8f348] text-[#1a1a1a] px-[42px] py-[18px] rounded-[50px] font-semibold text-base transition-opacity duration-300 hover:opacity-90 max-md:w-full max-md:text-center"
           >
             Get Started
-          </Link>
+          </button>
           <Link
             href="#"
             className="bg-transparent text-white border border-white/40 px-[42px] py-[18px] rounded-[50px] font-normal text-base transition-all duration-300 hover:bg-white/10 hover:border-white max-md:w-full max-md:text-center"
@@ -56,6 +60,12 @@ export default function HeroSection() {
           </Link>
         </motion.div>
       </div>
+
+      {/* Get Started Dialog */}
+      <GetStartedDialog
+        isOpen={isDialogOpen}
+        onClose={() => setIsDialogOpen(false)}
+      />
     </div>
   );
 }
