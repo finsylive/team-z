@@ -124,8 +124,8 @@ export default function GetStartedDialog({
         >
           <div className="p-8 text-center">
             <div className="flex justify-center mb-6">
-              <div className="w-20 h-20 rounded-full bg-[#a8f348]/20 flex items-center justify-center">
-                <CheckCircle className="w-12 h-12 text-[#a8f348]" />
+              <div className="w-20 h-20 rounded-full bg-[#00DD88]/20 flex items-center justify-center">
+                <CheckCircle className="w-12 h-12 text-[#00DD88]" />
               </div>
             </div>
             <h2 className="text-2xl font-semibold text-white mb-3">
@@ -139,7 +139,7 @@ export default function GetStartedDialog({
             </p>
             <button
               onClick={handleClose}
-              className="w-full px-6 py-3 bg-[#a8f348] text-[#1a1a1a] rounded-lg font-semibold hover:opacity-90 transition-opacity"
+              className="w-full px-6 py-3 bg-[#00DD88] text-[#1a1a1a] rounded-lg font-semibold hover:opacity-90 transition-opacity"
             >
               Close
             </button>
@@ -177,7 +177,7 @@ export default function GetStartedDialog({
               htmlFor="name"
               className="block text-sm font-medium text-white/80 mb-2"
             >
-              Name <span className="text-[#a8f348]">*</span>
+              Name <span className="text-[#00DD88]">*</span>
             </label>
             <input
               type="text"
@@ -186,7 +186,7 @@ export default function GetStartedDialog({
               required
               value={formData.name}
               onChange={handleChange}
-              className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white placeholder-white/40 focus:outline-none focus:ring-2 focus:ring-[#a8f348] focus:border-transparent transition-all"
+              className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white placeholder-white/40 focus:outline-none focus:ring-2 focus:ring-[#00DD88] focus:border-transparent transition-all"
               placeholder="Enter your full name"
             />
           </div>
@@ -197,7 +197,7 @@ export default function GetStartedDialog({
               htmlFor="email"
               className="block text-sm font-medium text-white/80 mb-2"
             >
-              Email <span className="text-[#a8f348]">*</span>
+              Email <span className="text-[#00DD88]">*</span>
             </label>
             <input
               type="email"
@@ -206,7 +206,7 @@ export default function GetStartedDialog({
               required
               value={formData.email}
               onChange={handleChange}
-              className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white placeholder-white/40 focus:outline-none focus:ring-2 focus:ring-[#a8f348] focus:border-transparent transition-all"
+              className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white placeholder-white/40 focus:outline-none focus:ring-2 focus:ring-[#00DD88] focus:border-transparent transition-all"
               placeholder="Enter your email address"
             />
           </div>
@@ -217,7 +217,7 @@ export default function GetStartedDialog({
               htmlFor="phone"
               className="block text-sm font-medium text-white/80 mb-2"
             >
-              Phone Number <span className="text-[#a8f348]">*</span>
+              Phone Number <span className="text-[#00DD88]">*</span>
             </label>
             <input
               type="tel"
@@ -226,7 +226,7 @@ export default function GetStartedDialog({
               required
               value={formData.phone}
               onChange={handleChange}
-              className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white placeholder-white/40 focus:outline-none focus:ring-2 focus:ring-[#a8f348] focus:border-transparent transition-all"
+              className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white placeholder-white/40 focus:outline-none focus:ring-2 focus:ring-[#00DD88] focus:border-transparent transition-all"
               placeholder="Enter your phone number"
             />
           </div>
@@ -237,7 +237,7 @@ export default function GetStartedDialog({
               htmlFor="projectName"
               className="block text-sm font-medium text-white/80 mb-2"
             >
-              Project Name <span className="text-[#a8f348]">*</span>
+              Project Name <span className="text-[#00DD88]">*</span>
             </label>
             <input
               type="text"
@@ -246,7 +246,7 @@ export default function GetStartedDialog({
               required
               value={formData.projectName}
               onChange={handleChange}
-              className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white placeholder-white/40 focus:outline-none focus:ring-2 focus:ring-[#a8f348] focus:border-transparent transition-all"
+              className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white placeholder-white/40 focus:outline-none focus:ring-2 focus:ring-[#00DD88] focus:border-transparent transition-all"
               placeholder="What's your project called?"
             />
           </div>
@@ -254,7 +254,7 @@ export default function GetStartedDialog({
           {/* Services */}
           <div>
             <label className="block text-sm font-medium text-white/80 mb-3">
-              Services You're Interested In <span className="text-[#a8f348]">*</span>
+              Services You're Interested In <span className="text-[#00DD88]">*</span>
             </label>
             <div className="space-y-2">
               {services.map((service) => (
@@ -266,7 +266,7 @@ export default function GetStartedDialog({
                     type="checkbox"
                     checked={formData.services.includes(service)}
                     onChange={() => handleServiceToggle(service)}
-                    className="w-5 h-5 rounded border-white/20 bg-white/5 text-[#a8f348] focus:ring-2 focus:ring-[#a8f348] focus:ring-offset-2 focus:ring-offset-[#1a1a1a]"
+                    className="w-5 h-5 rounded border-white/20 bg-white/5 text-[#00DD88] focus:ring-2 focus:ring-[#00DD88] focus:ring-offset-2 focus:ring-offset-[#1a1a1a]"
                   />
                   <span className="text-white/90">{service}</span>
                 </label>
@@ -292,7 +292,7 @@ export default function GetStartedDialog({
               name="preferredTiming"
               value={formData.preferredTiming}
               onChange={handleChange}
-              className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-[#a8f348] focus:border-transparent transition-all"
+              className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-[#00DD88] focus:border-transparent transition-all"
             >
               <option value="" className="bg-[#1a1a1a]">Select preferred timing</option>
               <option value="morning" className="bg-[#1a1a1a]">Morning (9 AM - 12 PM)</option>
@@ -316,7 +316,7 @@ export default function GetStartedDialog({
               rows={4}
               value={formData.additionalNotes}
               onChange={handleChange}
-              className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white placeholder-white/40 focus:outline-none focus:ring-2 focus:ring-[#a8f348] focus:border-transparent transition-all resize-none"
+              className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white placeholder-white/40 focus:outline-none focus:ring-2 focus:ring-[#00DD88] focus:border-transparent transition-all resize-none"
               placeholder="Tell us more about your project, timeline, budget, or any specific requirements..."
             />
           </div>
@@ -340,7 +340,7 @@ export default function GetStartedDialog({
                 !formData.projectName ||
                 formData.services.length === 0
               }
-              className="flex-1 px-6 py-3 bg-[#a8f348] text-[#1a1a1a] rounded-lg font-semibold hover:opacity-90 transition-opacity disabled:opacity-50 disabled:cursor-not-allowed"
+              className="flex-1 px-6 py-3 bg-[#00DD88] text-[#1a1a1a] rounded-lg font-semibold hover:opacity-90 transition-opacity disabled:opacity-50 disabled:cursor-not-allowed"
             >
               {isSubmitting ? "Submitting..." : "Submit"}
             </button>

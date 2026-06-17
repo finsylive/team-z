@@ -4,7 +4,8 @@ export const projects = [
     title: "Exatone",
     description: "A science-driven, adaptive workout tracking app.",
     tags: ["Mobile App", "Development", "UI/UX Design"],
-    image: "/images/projects/exatone.jpeg",
+    image: "/images/projects/exatone1.png",
+    cover: "/images/projects/exatone.jpeg",
     content: `Case Study: Exatone
 A science-driven, adaptive workout tracking app
 
@@ -31,8 +32,9 @@ Exatone taught us that great products are built by obsessing over data foundatio
     title: "Freso (Dhaara)",
     description: "A scalable B2B logistics and delivery management platform.",
     tags: ["Web App", "Mobile App", "Logistics", "B2B"],
-    image: "/images/projects/fresho.jpeg",
-    content: `Case Study: Freshio (Freso / Dhaara)
+    image: "/images/projects/freso1.png",
+    cover: "/images/projects/fresho.jpeg",
+    content: `Case Study: Freso (Dhaara)
 A scalable B2B logistics and delivery management platform
 
 1. What problem were we trying to solve?
@@ -41,7 +43,7 @@ Existing solutions were either fragmented (separate tools for admin, logistics, 
 There was a clear need for a unified platform that could handle multi-role access, real-time order flow, and cross-platform usage without duplicating backend logic.
 
 2. What did we build, and what decisions mattered?
-We built Freshio (Dhaara), a full-stack B2B logistics system consisting of a Next.js web platform (admin, logistics, customer portals) and a Flutter mobile app for customers.
+We built Freso (Dhaara), a full-stack B2B logistics system consisting of a Next.js web platform (admin, logistics, customer portals) and a Flutter mobile app for customers.
 A key architectural decision was using a single shared Supabase backend for web and mobile, enabling one source of truth, unified authentication, and real-time sync across platforms.
 We designed strict role-based access control (Super Admin, Regional Admin, Logistics Partner, Customer) enforced at the database level using RLS, reducing application-layer complexity while improving security and scalability.
 
@@ -51,14 +53,15 @@ We learned that enforcing business logic at the database level (RLS + schema des
 If rebuilt, we would modularize analytics and reporting earlier, as operational data quickly became valuable for regional decision-making once the platform was in use.
 
 One-line takeaway
-Freshio demonstrates how a well-designed shared backend and role-driven architecture can power complex B2B logistics workflows across web and mobile without duplication.`,
+Freso demonstrates how a well-designed shared backend and role-driven architecture can power complex B2B logistics workflows across web and mobile without duplication.`,
   },
   {
     id: 5,
     title: "Ments",
     description: "A cross-college collaboration and mentorship platform.",
     tags: ["Mobile App", "Collaboration", "Mentorship"],
-    image: "/images/projects/ments.png",
+    image: "/images/projects/ments1.png",
+    cover: "/images/projects/ments.png",
     content: `Case Study: Ments
 A cross-college collaboration and mentorship platform
 
@@ -82,10 +85,11 @@ Ments shows how focusing on real work instead of social interaction can create a
   },
   {
     id: 6,
-    title: "Dark Academia Portfolio",
+    title: "Academia Portfolio",
     description: "A highly personalized, narrative-driven portfolio website.",
     tags: ["Web Design", "Development", "Branding"],
-    image: "/images/projects/portfolio.jpeg",
+    image: "/images/projects/portfolio1.png",
+    cover: "/images/projects/portfolio.jpeg",
     content: `Case Study: Personal Portfolio: Dark Academia Edition
 A highly personalized, narrative-driven portfolio website
 
@@ -105,6 +109,57 @@ We learned that in personal branding, distinctiveness beats polish. By leaning i
 
 One-line takeaway
 A portfolio shouldn't just show your work; it should show how your mind works.`,
+  },
+  {
+    id: 7,
+    title: "Cyinov Consulting",
+    description: "A corporate website for a full-service business consulting firm.",
+    tags: ["Website", "Web Design", "Development"],
+    image: "/images/projects/cyinov1.png",
+    cover: "/images/projects/cyinov.png",
+    content: `Case Study: Cyinov Consulting
+A corporate website for a full-service business consulting firm
+
+1. What problem were we trying to solve?
+Cyinov offers a broad range of advisory services across legal, tax, market research, compliance, and human capital, but needed a clear, trustworthy web presence that communicated this breadth without overwhelming first-time visitors.
+The challenge was to make a complex, multi-service offering feel simple and credible, and to turn visitors into booked consultations.
+
+2. What did we build, and what decisions mattered?
+We designed and built a clean corporate marketing website that organizes the firm's offering into four clear service pillars, with supporting detail pages, client testimonials, and an extensive FAQ.
+A key decision was to lead with clarity over jargon, so a startup founder and an enterprise client could both quickly understand what Cyinov does and where they fit.
+Every section funnels toward a single, low-friction action: scheduling a consultation.
+
+3. What changed or what did we learn because of it?
+The site gave Cyinov a polished, professional presence that matched the quality of their advisory work and made their services easy to navigate.
+We learned that for services this varied, structure is the product, clear pillars and a consistent path to contact do more for conversion than visual flourish.
+
+One-line takeaway
+For a multi-service firm, the website's real job is to make a complex offering feel simple and trustworthy.`,
+  },
+  {
+    id: 8,
+    title: "Kaysons Logistics",
+    description: "A freight bidding and fleet management platform for the road logistics industry.",
+    tags: ["Web App", "Mobile App", "Logistics", "B2B"],
+    image: "", // TODO: set to /images/projects/kaysons1.png once the scene image is added
+    content: `Case Study: Kaysons Logistics
+A freight bidding and fleet management platform for the road logistics industry
+
+1. What problem were we trying to solve?
+Road freight runs on fragmented tools, bids over phone calls and spreadsheets, tracking in chat apps, payments reconciled by hand. Shippers, transporters, dispatch teams, and accountants had no single system, so deals were slow, opaque, and error-prone.
+There was a clear need for one platform that could run the full freight lifecycle, from bid creation to delivery and payment, across both web and mobile.
+
+2. What did we build, and what decisions mattered?
+We built Kaysons, a cross-platform (web + mobile) freight management and bidding platform that connects shippers, logistics managers, transporters, and dispatch teams on one system.
+It covers the full lifecycle: a freight bidding marketplace, role-based dashboards for transporters, logistics managers, dispatch, admins, and accountants, fleet and vehicle management, live shipment tracking, a ledger for billing and reconciliation, proof of delivery with fraud-risk controls, and analytics dashboards.
+We chose Flutter and Supabase to ship responsive web and native mobile from a single codebase, with Postgres, auth, and edge functions handling real-time data and role-based access enforced at the database level. We also built an AI admin assistant for conversational insights and operations.
+
+3. What changed or what did we learn because of it?
+Bringing bidding, tracking, payments, and reporting into one system replaced a stack of disconnected tools and gave every role a clear view of the same data.
+We learned that for multi-role operational software, enforcing roles and business logic at the database level keeps a large system secure and maintainable as it scales.
+
+One-line takeaway
+Kaysons turns a fragmented, call-and-spreadsheet freight process into one connected platform, from bid to delivery.`,
   },
 ];
 

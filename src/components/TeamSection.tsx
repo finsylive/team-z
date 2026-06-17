@@ -40,7 +40,7 @@ const teamMembers = [
 
 export default function TeamSection() {
   return (
-    <section id="team" className="w-full max-w-[1200px] py-20 mx-auto px-4">
+    <section id="team" className="w-full max-w-[1240px] py-20 mx-auto px-4">
       <div className="flex justify-between items-end mb-10">
         <h2 className="text-[3rem] font-semibold tracking-[-1px] max-md:text-[2rem]">
           Our Team
@@ -69,7 +69,7 @@ export default function TeamSection() {
             <h3 className="text-[1.5rem] font-semibold mb-[5px] text-[#1a1a1a]">
               {member.name}
             </h3>
-            <p className="text-[1rem] font-medium text-[#a8f348] mb-1">{member.role}</p>
+            <p className="text-[1rem] font-medium text-[#00A368] mb-1">{member.role}</p>
             <p className="text-[0.9rem] text-[#666]">{member.experience}</p>
             <p className="text-[0.85rem] text-[#888] mt-2 font-medium uppercase tracking-wide">{member.almaMater}</p>
           </motion.div>

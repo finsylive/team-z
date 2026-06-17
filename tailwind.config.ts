@@ -9,8 +9,23 @@ export default {
   theme: {
     extend: {
       colors: {
+        green: {
+          DEFAULT: "#00DD88",
+          dark: "#00A368",
+          light: "#E6FAF2",
+        },
+        black: {
+          DEFAULT: "#0A0A0A",
+          light: "#1A1A1A",
+        },
+        gray: {
+          DEFAULT: "#F5F5F5",
+          dark: "#888888",
+        },
         primary: {
-          green: "#a8f348",
+          green: "#00DD88",
+          "green-deep": "#00A368",
+          "green-tint": "#E6FAF2",
         },
         text: {
           light: "#ffffff",

@@ -1,87 +1,154 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { Plus } from "lucide-react";
-import Link from "next/link";
+import { AnimatePresence, motion } from "framer-motion";
+import { ArrowUpRight, Plus } from "lucide-react";
+import { useState } from "react";
+import GetStartedDialog from "./GetStartedDialog";
 
 const services = [
   {
     number: "01",
-    title: "App Development",
+    title: "Web Development",
     description:
-      "We build high-performance native and cross-platform mobile applications that provide seamless user experiences across all devices.",
+      "Fast, scalable web applications and websites that deliver high performance, strong SEO, and a smooth experience for every visitor.",
   },
   {
     number: "02",
-    title: "Product Design and Branding",
+    title: "App Development",
     description:
-      "From wireframes to high-fidelity prototypes, we design user-centric products that are both beautiful and functional.",
+      "High-performance native and cross-platform mobile applications that deliver seamless user experiences across every device.",
   },
   {
     number: "03",
-    title: "Web Development",
+    title: "Product Design & Branding",
     description:
-      "Our engineering team builds robust, scalable web applications using the latest technologies to ensure performance and security.",
+      "User-centric product design and brand identity that turn ideas into clear, intuitive, and memorable digital experiences.",
   },
   {
     number: "04",
-    title: "Digital Marketing",
+    title: "AI Automation",
     description:
-      "We drive traffic and conversions through targeted SEO, social media campaigns, and data-driven marketing strategies.",
+      "Custom AI workflows and integrations that take over the repetitive, manual work across your operations.",
   },
 ];
 
 export default function ServicesAccordion() {
+  const [isDialogOpen, setIsDialogOpen] = useState(false);
+  const [openIndex, setOpenIndex] = useState<number | null>(null);
+
   return (
-    <section id="services" className="w-full max-w-[1200px] pb-20 grid grid-cols-[0.8fr_1.2fr] gap-[50px] mx-auto px-4 max-lg:grid-cols-1 max-lg:gap-[30px]">
-      <div className="pt-5">
-        <div className="uppercase tracking-[2px] text-[0.9rem] text-[#666] mb-5 font-semibold">
-          Our Services
+    <section
+      id="services"
+      className="w-full max-w-[1240px] pb-20 grid grid-cols-[0.85fr_1.15fr] gap-[60px] mx-auto px-4 max-lg:grid-cols-1 max-lg:gap-[40px] scroll-mt-24"
+    >
+      {/* ===== Left: intro ===== */}
+      <div className="lg:sticky lg:top-32 self-start">
+        <div className="flex items-center gap-2.5 mb-5">
+          <span className="h-[7px] w-[7px] rounded-full bg-[#00DD88]" />
+          <span className="uppercase tracking-[2px] text-[0.8rem] text-[#00A368] font-semibold">
+            Our Services
+          </span>
         </div>
-        <h2 className="text-[3rem] leading-[1.1] font-semibold mb-[30px] tracking-[-1px] max-md:text-[2rem]">
-          We help you to build your business.
+        <h2 className="text-[2.9rem] leading-[1.1] font-semibold tracking-[-1.5px] text-[#1a1a1a] mb-6 max-md:text-[2.1rem]">
+          Everything your product needs,{" "}
+          <span className="whitespace-nowrap font-['Instrument_Serif',Georgia,serif] font-normal italic tracking-normal text-[#00A368]">
+            in one place.
+          </span>
         </h2>
-        <p className="text-[#666] leading-[1.6] mb-[30px]">
-          We combine creative design with technical expertise to deliver
-          solutions that drive growth and efficiency.
+        <p className="text-[#666] text-[1.05rem] leading-[1.65] mb-8 max-w-[400px]">
+          Skip hiring separate designers, developers, and AI specialists. We
+          handle it all, from raw idea to live product.
         </p>
-        <Link
-          href="#"
-          className="inline-block bg-[#a8f348] text-[#1a1a1a] px-[42px] py-[18px] rounded-[50px] font-semibold text-base transition-opacity duration-300 hover:opacity-90"
+        <button
+          onClick={() => setIsDialogOpen(true)}
+          className="group inline-flex items-center gap-2 bg-[#1a1a1a] text-white px-[26px] py-[13px] rounded-full font-semibold text-[0.95rem] transition-all duration-300 hover:bg-[#00A368] hover:-translate-y-0.5"
         >
-          View All Services
-        </Link>
+          Start a Project
+          <ArrowUpRight className="w-[18px] h-[18px] transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+        </button>
       </div>
 
-      <div className="flex flex-col gap-[15px]">
-        {services.map((service, index) => (
-          <motion.div
-            key={service.number}
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.4, delay: index * 0.1 }}
-            viewport={{ once: true }}
-            className="bg-white rounded-[20px] overflow-hidden border border-transparent transition-all duration-300 hover:shadow-[0_10px_30px_rgba(0,0,0,0.08)] hover:border-[#eee] group"
-          >
-            <div className="p-[25px_30px] flex justify-between items-center cursor-pointer w-full max-md:p-5">
-              <div className="flex items-center gap-5">
-                <span className="text-[1.2rem] text-[#ccc] font-medium transition-colors duration-300 group-hover:text-[#a8f348]">
-                  {service.number}
+      {/* ===== Right: accordion ===== */}
+      <div
+        className="flex flex-col gap-[14px] lg:pt-6"
+        onMouseLeave={() => setOpenIndex(null)}
+      >
+        {services.map((service, index) => {
+          const isOpen = openIndex === index;
+          return (
+            <motion.div
+              key={service.number}
+              onMouseEnter={() => setOpenIndex(index)}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.4, delay: index * 0.08 }}
+              viewport={{ once: true }}
+              className={`group rounded-[22px] bg-white border transition-all duration-300 ${
+                isOpen
+                  ? "border-[#00DD88] shadow-[0_20px_46px_-22px_rgba(0,221,136,0.5)]"
+                  : "border-[#eaeaea] shadow-[0_1px_2px_rgba(0,0,0,0.04)] hover:-translate-y-[3px] hover:border-[#d4d4d4] hover:shadow-[0_18px_38px_-20px_rgba(0,0,0,0.2)]"
+              }`}
+            >
+              <button
+                onClick={() => setOpenIndex(isOpen ? null : index)}
+                aria-expanded={isOpen}
+                className="flex w-full items-center justify-between gap-5 px-8 pt-[22px] pb-[16px] text-left max-md:px-6 max-md:py-5"
+              >
+                <div className="flex items-baseline gap-7 max-md:gap-4">
+                  <span
+                    className={`text-[0.85rem] font-semibold tabular-nums tracking-[1.5px] transition-colors duration-300 ${
+                      isOpen
+                        ? "text-[#00A368]"
+                        : "text-[#c4c4c4] group-hover:text-[#999]"
+                    }`}
+                  >
+                    {service.number}
+                  </span>
+                  <span
+                    className={`text-[1.45rem] font-semibold tracking-[-0.5px] transition-colors duration-300 max-md:text-[1.15rem] ${
+                      isOpen ? "text-[#1a1a1a]" : "text-[#1a1a1a] group-hover:text-[#00A368]"
+                    }`}
+                  >
+                    {service.title}
+                  </span>
+                </div>
+                <span
+                  className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-full border transition-all duration-300 ${
+                    isOpen
+                      ? "rotate-45 border-transparent bg-[#00DD88] text-[#0a0a0a]"
+                      : "border-[#e5e5e5] bg-white text-[#1a1a1a] group-hover:border-[#1a1a1a]"
+                  }`}
+                >
+                  <Plus className="h-[18px] w-[18px]" />
                 </span>
-                <span className="text-[1.3rem] font-semibold text-[#1a1a1a]">
-                  {service.title}
-                </span>
-              </div>
-              <div className="w-10 h-10 rounded-full bg-[#f5f5f5] flex justify-center items-center transition-all duration-300 group-hover:bg-[#a8f348] group-hover:rotate-45">
-                <Plus className="w-5 h-5" />
-              </div>
-            </div>
-            <div className="max-h-0 overflow-hidden transition-all duration-500 ease-out px-[30px] text-[#666] leading-[1.6] group-hover:max-h-[200px] group-hover:pb-[30px]">
-              {service.description}
-            </div>
-          </motion.div>
-        ))}
+              </button>
+
+              <AnimatePresence initial={false}>
+                {isOpen && (
+                  <motion.div
+                    initial={{ height: 0, opacity: 0 }}
+                    animate={{ height: "auto", opacity: 1 }}
+                    exit={{ height: 0, opacity: 0 }}
+                    transition={{ duration: 0.35, ease: [0.4, 0, 0.2, 1] }}
+                    className="overflow-hidden"
+                  >
+                    <div className="mx-8 border-t border-[#f0f0f0] pb-6 pt-[14px] pl-[58px] max-md:mx-6 max-md:pl-0">
+                      <p className="text-[#555] text-[1.02rem] leading-[1.55] max-w-[560px]">
+                        {service.description}
+                      </p>
+                    </div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </motion.div>
+          );
+        })}
       </div>
+
+      <GetStartedDialog
+        isOpen={isDialogOpen}
+        onClose={() => setIsDialogOpen(false)}
+      />
     </section>
   );
 }

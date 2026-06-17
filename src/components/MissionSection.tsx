@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 
 export default function MissionSection() {
   return (
-    <section className="w-full max-w-[1200px] mx-auto px-4 mb-20 flex flex-col md:flex-row gap-12 items-center">
+    <section className="w-full max-w-[1240px] mx-auto px-4 mb-20 flex flex-col md:flex-row gap-12 items-center">
       <div className="flex-1">
         <motion.h2 
           initial={{ opacity: 0, x: -30 }}

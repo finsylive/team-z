@@ -23,7 +23,7 @@ export default function AboutHero() {
           transition={{ delay: 0.1 }}
           className="text-[4rem] md:text-[5.5rem] font-bold leading-[1] tracking-tight mb-8"
         >
-          WE ARE <span className="text-[#a8f348]">TEAMZ</span>.
+          WE ARE <span className="text-[#00DD88]">TEAMZ</span>.
         </motion.h1>
 
         <motion.p

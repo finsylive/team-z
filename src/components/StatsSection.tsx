@@ -10,7 +10,7 @@ const stats = [
 
 export default function StatsSection() {
   return (
-    <section className="w-full max-w-[1200px] mx-auto px-4 mb-20">
+    <section className="w-full max-w-[1240px] mx-auto px-4 mb-20">
       <div className="grid grid-cols-2 md:grid-cols-3 gap-8">
         {stats.map((stat, index) => (
           <motion.div

@@ -9,10 +9,10 @@ import { blogPosts } from "@/lib/data";
 
 export default function BlogSection() {
   return (
-    <section id="mini-blogs" className="w-full max-w-[1200px] pb-20 mx-auto px-4">
+    <section id="mini-blogs" className="w-full max-w-[1240px] pb-20 mx-auto px-4 scroll-mt-24">
       <div className="flex justify-between items-end mb-10">
         <h2 className="text-[3rem] font-semibold tracking-[-1px] max-md:text-[2rem]">
-          Mini Blogs
+          Insights
         </h2>
         <Link
           href="#"
