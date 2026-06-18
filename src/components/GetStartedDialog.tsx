@@ -12,7 +12,7 @@ const services = [
   "App Development",
   "Product Design and Branding",
   "Web Development",
-  "Digital Marketing",
+  "AI Automation",
 ];
 
 export default function GetStartedDialog({

@@ -13,7 +13,11 @@ export default function MissionSection() {
           className="text-[3rem] font-semibold leading-[1.1] mb-6 tracking-[-1px]"
         >
           Driven by passion, <br/>
-          defined by <span className="text-[#666]">excellence</span>.
+          defined by{" "}
+          <span className="font-['Instrument_Serif',Georgia,serif] font-normal italic tracking-normal text-[#00A368]">
+            excellence
+          </span>
+          .
         </motion.h2>
       </div>
       <div className="flex-1">

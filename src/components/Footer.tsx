@@ -8,7 +8,7 @@ const footerLinks = {
     { label: "About Us", href: "/about" },
     { label: "Our Team", href: "/about#team" },
     { label: "Careers", href: "mailto:teamzments@gmail.com" },
-    { label: "News", href: "/#mini-blogs" },
+    { label: "Insights", href: "/blog" },
   ],
   services: [
     { label: "Web Development", href: "/#services" },
@@ -20,7 +20,7 @@ const footerLinks = {
 
 export default function Footer() {
   return (
-    <footer className="w-full bg-[#1a1a1a] text-white rounded-t-[40px] pt-20 pb-10 px-[60px] mt-10 max-md:px-5 max-md:rounded-t-[20px] max-md:pt-10">
+    <footer className="w-screen bg-[#0a0b0d] text-white pt-24 pb-12 px-[60px] max-md:px-5 max-md:pt-16">
       <div className="max-w-[1240px] mx-auto flex justify-between items-start flex-wrap gap-10 max-md:flex-col">
         <div>
           <div className="relative w-[150px] h-[50px] mb-8">

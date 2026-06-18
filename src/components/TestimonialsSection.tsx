@@ -18,49 +18,55 @@ type Testimonial = {
 // and update name / role / company / initials (+ optional avatar) per client.
 const testimonials: Testimonial[] = [
   {
-    quote: "",
-    name: "Client name",
-    role: "Role",
+    quote:
+      "Honestly didn't expect it to come out this clean. I came in with a messy idea and they just got it. The app feels like something a big company would ship, not a small team. Users keep telling me how smooth it is.",
+    name: "Founder",
+    role: "",
     company: "Exatone",
     initials: "EX",
     rating: 5,
   },
   {
-    quote: "",
-    name: "Client name",
-    role: "Role",
+    quote:
+      "Our setup was complicated, multiple regions, different roles, the whole thing. They actually understood it, which most devs don't. Now it just works. Order to delivery, no chaos.",
+    name: "Founder",
+    role: "",
     company: "Freso (Dhaara)",
     initials: "FR",
     rating: 5,
   },
   {
-    quote: "",
-    name: "Client name",
-    role: "Role",
+    quote:
+      "Felt like they were part of our team, not an agency. Fast replies, no ego, and they cared about the small things. They also shipped when they said they would, which honestly never happens.",
+    name: "Founder",
+    role: "",
     company: "Ments",
     initials: "MT",
     rating: 5,
   },
   {
-    quote: "",
-    name: "Client name",
-    role: "Role",
+    quote:
+      "Our old site confused even us. They made it simple and clean and it finally explains what we actually do. Got compliments from clients in the first week.",
+    name: "Founder",
+    role: "",
     company: "Cyinov Consulting",
     initials: "CY",
     rating: 5,
   },
   {
-    quote: "",
-    name: "Client name",
-    role: "Role",
-    company: "Kaysons Logistics",
+    quote:
+      "Big build with a lot of moving parts, bidding, tracking, payments. They didn't flinch. The whole thing runs smoothly now and the AI assistant is genuinely useful, not a gimmick.",
+    name: "Founder",
+    role: "",
+    company: "Kay Sons",
     initials: "KL",
     rating: 5,
   },
   {
-    quote: "",
-    name: "Client name",
-    role: "Role",
+    quote:
+      "Most portfolio sites feel the same. Mine actually feels like me. They got my chaotic vibe and somehow made it look intentional. I've had so many people ask who built it.",
+    name: "Owner",
+    role: "",
     company: "Academia Portfolio",
     initials: "AP",
     rating: 5,
@@ -77,7 +83,7 @@ export default function TestimonialsSection() {
   return (
     <section
       id="testimonials"
-      className="w-screen scroll-mt-24 bg-gradient-to-b from-[#f4f5f3] via-[#fafbfc] to-[#f4f5f3] py-20 max-md:py-14"
+      className="w-screen scroll-mt-24 py-20 max-md:py-14"
     >
       <div className="mx-auto w-full max-w-[1240px] px-4">
         {/* Header + arrows */}

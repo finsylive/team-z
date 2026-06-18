@@ -3,7 +3,18 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 
-const teamMembers = [
+type TeamMember = {
+  id: number;
+  name: string;
+  role: string;
+  experience?: string;
+  almaMater?: string;
+  image: string;
+  // Optional per-photo zoom/crop so framing matches the rest of the row.
+  imgClass?: string;
+};
+
+const teamMembers: TeamMember[] = [
   {
     id: 1,
     name: "Ayushman Singh",
@@ -36,18 +47,28 @@ const teamMembers = [
     almaMater: "IIT Madras",
     image: "/images/team/Naveen-profile.jpeg",
   },
+  {
+    id: 5,
+    name: "Shrishti",
+    role: "Web Developer",
+    experience: "2 Years Experience",
+    image: "/images/team/shrishti-profile.png",
+  },
 ];
 
 export default function TeamSection() {
   return (
-    <section id="team" className="w-full max-w-[1240px] py-20 mx-auto px-4">
-      <div className="flex justify-between items-end mb-10">
+    <section id="team" className="mx-auto w-full max-w-[1240px] px-4 py-20">
+      <div className="mb-10 flex items-end justify-between">
         <h2 className="text-[3rem] font-semibold tracking-[-1px] max-md:text-[2rem]">
-          Our Team
+          Our{" "}
+          <span className="font-['Instrument_Serif',Georgia,serif] font-normal italic tracking-normal text-[#00A368]">
+            Team
+          </span>
         </h2>
       </div>
 
-      <div className="grid grid-cols-4 gap-[30px] max-lg:grid-cols-2 max-md:grid-cols-1">
+      <div className="grid grid-cols-5 gap-5 max-xl:grid-cols-3 max-md:grid-cols-2 max-sm:grid-cols-1">
         {teamMembers.map((member, index) => (
           <motion.div
             key={member.id}
@@ -55,23 +76,32 @@ export default function TeamSection() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: index * 0.1 }}
             viewport={{ once: true }}
-            className="bg-white p-5 rounded-[30px] text-center transition-transform duration-300 hover:-translate-y-[5px]"
+            className="rounded-[30px] bg-white p-5 text-center transition-transform duration-300 hover:-translate-y-[5px]"
           >
-            <div className="relative w-full h-[300px] rounded-[20px] overflow-hidden mb-5 bg-[#eee]">
+            <div className="relative mb-5 h-[300px] w-full overflow-hidden rounded-[20px] bg-[#eee]">
               <Image
                 src={member.image}
                 alt={member.name}
                 fill
-                className="object-cover"
+                className={`object-cover ${member.imgClass ?? ""}`}
                 priority={index < 3}
+                unoptimized
               />
             </div>
-            <h3 className="text-[1.5rem] font-semibold mb-[5px] text-[#1a1a1a]">
+            <h3 className="mb-[5px] text-[1.5rem] font-semibold text-[#1a1a1a]">
               {member.name}
             </h3>
-            <p className="text-[1rem] font-medium text-[#00A368] mb-1">{member.role}</p>
-            <p className="text-[0.9rem] text-[#666]">{member.experience}</p>
-            <p className="text-[0.85rem] text-[#888] mt-2 font-medium uppercase tracking-wide">{member.almaMater}</p>
+            <p className="mb-1 text-[1rem] font-medium text-[#00A368]">
+              {member.role}
+            </p>
+            {member.experience && (
+              <p className="text-[0.9rem] text-[#666]">{member.experience}</p>
+            )}
+            {member.almaMater && (
+              <p className="mt-2 text-[0.85rem] font-medium uppercase tracking-wide text-[#888]">
+                {member.almaMater}
+              </p>
+            )}
           </motion.div>
         ))}
       </div>

@@ -1,9 +1,11 @@
+import type { Metadata } from "next";
 import { ArrowLeft } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
 import { projects } from "@/lib/data";
+import { SITE_URL, breadcrumbLd, jsonLdScript } from "@/lib/seo";
 
 interface ProjectPageProps {
   params: Promise<{
@@ -12,6 +14,38 @@ interface ProjectPageProps {
 }
 
 const clean = (s: string) => s.replace(/\*\*/g, "").replace(/^\*\s*/, "");
+
+export function generateStaticParams() {
+  return projects.map((p) => ({ id: String(p.id) }));
+}
+
+export async function generateMetadata({
+  params,
+}: ProjectPageProps): Promise<Metadata> {
+  const { id } = await params;
+  const project = projects.find((p) => p.id === parseInt(id));
+  if (!project) return { title: "Project not found" };
+
+  const cover = (project as { cover?: string }).cover ?? project.image;
+  return {
+    title: `${project.title}: ${project.tags.slice(0, 2).join(" & ")} Case Study`,
+    description: project.description,
+    alternates: { canonical: `/projects/${project.id}` },
+    openGraph: {
+      type: "article",
+      title: `${project.title} | TEAMZ Case Study`,
+      description: project.description,
+      url: `/projects/${project.id}`,
+      images: cover ? [cover] : undefined,
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${project.title} | TEAMZ Case Study`,
+      description: project.description,
+      images: cover ? [cover] : undefined,
+    },
+  };
+}
 
 function CaseStudyBody({ content }: { content: string }) {
   const blocks = content
@@ -83,8 +117,36 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
   // since the card scenes (…1.png) have empty copy-space on one side.
   const cover = (project as { cover?: string }).cover ?? project.image;
 
+  const projectLd = {
+    "@context": "https://schema.org",
+    "@type": "CreativeWork",
+    name: project.title,
+    headline: `${project.title} case study`,
+    description: project.description,
+    url: `${SITE_URL}/projects/${project.id}`,
+    image: cover ? `${SITE_URL}${cover}` : undefined,
+    keywords: project.tags.join(", "),
+    creator: { "@id": `${SITE_URL}/#organization` },
+    provider: { "@id": `${SITE_URL}/#organization` },
+    isPartOf: { "@id": `${SITE_URL}/#website` },
+  };
+
   return (
     <main className="min-h-screen px-5 pb-24 pt-[130px] max-md:px-4 max-md:pt-[100px]">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={jsonLdScript(projectLd)}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={jsonLdScript(
+          breadcrumbLd([
+            { name: "Home", path: "/" },
+            { name: "Our Work", path: "/projects" },
+            { name: project.title, path: `/projects/${project.id}` },
+          ]),
+        )}
+      />
       <article className="mx-auto max-w-[860px]">
         <Link
           href="/projects"

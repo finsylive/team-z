@@ -9,8 +9,11 @@ const clients = [
   { name: "Dhaara", icon: Boxes, isItalic: true },
 ];
 
-// Duplicated once so the -50% translate loops seamlessly
-const track = [...clients, ...clients];
+// One "half" repeats the brands enough times to overflow any screen width, so
+// the marquee never runs out and shows an empty gap. Rendered twice so the
+// -50% translate loops perfectly seamlessly.
+const half = Array.from({ length: 4 }, () => clients).flat();
+const track = [...half, ...half];
 
 export default function ClientLogos() {
   return (
@@ -20,11 +23,11 @@ export default function ClientLogos() {
       </p>
 
       <div className="relative overflow-hidden marquee-mask">
-        <div className="flex w-max items-center gap-16 animate-marquee">
+        <div className="flex w-max items-center animate-marquee">
           {track.map((client, i) => (
             <div
               key={`${client.name}-${i}`}
-              className={`flex items-center gap-3 text-2xl font-bold text-[#b4b4b4] whitespace-nowrap transition-colors duration-300 hover:text-[#1a1a1a] ${
+              className={`mr-16 flex items-center gap-3 text-2xl font-bold text-[#b4b4b4] whitespace-nowrap transition-colors duration-300 hover:text-[#1a1a1a] ${
                 client.isItalic ? "font-serif italic" : ""
               }`}
             >
