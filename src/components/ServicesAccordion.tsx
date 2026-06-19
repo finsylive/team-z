@@ -1,7 +1,7 @@
 "use client";
 
 import { AnimatePresence, motion } from "framer-motion";
-import { ArrowUpRight, Plus } from "lucide-react";
+import { ArrowUpRight, Check, Plus } from "lucide-react";
 import { useState } from "react";
 import GetStartedDialog from "./GetStartedDialog";
 
@@ -10,25 +10,57 @@ const services = [
     number: "01",
     title: "Web Development",
     description:
-      "Fast, scalable web applications and websites that deliver high performance, strong SEO, and a smooth experience for every visitor.",
+      "From marketing sites to full web apps, we design and build fast, scalable products that look sharp and actually convert. Clean code, strong SEO, and a smooth experience on every screen.",
+    offerings: [
+      "Custom websites and landing pages",
+      "Web apps and dashboards (Next.js, React)",
+      "E-commerce and storefronts",
+      "CMS setup so you can edit content yourself",
+      "Performance, SEO, and Core Web Vitals tuning",
+      "Responsive across mobile, tablet, and desktop",
+    ],
   },
   {
     number: "02",
     title: "App Development",
     description:
-      "High-performance native and cross-platform mobile applications that deliver seamless user experiences across every device.",
+      "Native and cross-platform mobile apps built for real users. We take you from idea to a polished app, live on the App Store and Play Store.",
+    offerings: [
+      "iOS and Android apps (Flutter, React Native)",
+      "Mobile-first UI and UX design",
+      "API and backend integration",
+      "Auth, payments, and push notifications",
+      "App Store and Play Store submission",
+      "Maintenance and updates after launch",
+    ],
   },
   {
     number: "03",
     title: "Product Design & Branding",
     description:
-      "User-centric product design and brand identity that turn ideas into clear, intuitive, and memorable digital experiences.",
+      "We shape how your product looks, feels, and is remembered, from the first wireframe to a full brand identity that stands out.",
+    offerings: [
+      "UX research and user flows",
+      "Wireframes and interactive prototypes",
+      "High-fidelity UI design in Figma",
+      "Brand identity: logo, colors, typography",
+      "Design systems and component libraries",
+      "Marketing and social media assets",
+    ],
   },
   {
     number: "04",
     title: "AI Automation",
     description:
-      "Custom AI workflows and integrations that take over the repetitive, manual work across your operations.",
+      "We plug AI into your day-to-day so the repetitive work runs itself. Custom workflows, integrations, and assistants tailored to how you actually operate.",
+    offerings: [
+      "Workflow automation (n8n, Zapier, custom)",
+      "AI chatbots and support assistants",
+      "Lead capture, follow-ups, and CRM sync",
+      "Document, email, and content automation",
+      "Integrations with your existing tools",
+      "Custom GPT and LLM solutions",
+    ],
   },
 ];
 
@@ -136,6 +168,23 @@ export default function ServicesAccordion() {
                       <p className="text-[#555] text-[1.02rem] leading-[1.55] max-w-[560px]">
                         {service.description}
                       </p>
+                      <p className="mt-5 mb-3 text-[0.72rem] font-semibold uppercase tracking-[1.5px] text-[#00A368]">
+                        What you get
+                      </p>
+                      <ul className="grid grid-cols-2 gap-x-6 gap-y-2.5 max-w-[560px] max-sm:grid-cols-1">
+                        {service.offerings.map((item) => (
+                          <li
+                            key={item}
+                            className="flex items-start gap-2.5 text-[#444] text-[0.95rem] leading-[1.4]"
+                          >
+                            <Check
+                              className="mt-[2px] h-4 w-4 shrink-0 text-[#00A368]"
+                              strokeWidth={2.5}
+                            />
+                            <span>{item}</span>
+                          </li>
+                        ))}
+                      </ul>
                     </div>
                   </motion.div>
                 )}
