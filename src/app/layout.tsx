@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
+import FloatingWhatsApp from "@/components/FloatingWhatsApp";
 import {
   SITE_URL,
   SITE_NAME,
@@ -69,6 +70,7 @@ export default function RootLayout({
       <body className="antialiased">
         <Navbar />
         {children}
+        <FloatingWhatsApp />
       </body>
     </html>
   );

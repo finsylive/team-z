@@ -13,6 +13,14 @@ export const SITE_DESCRIPTION =
 
 export const CONTACT_EMAIL = "teamzments@gmail.com";
 
+// WhatsApp contact. Number must be digits only, with country code, no "+" or spaces.
+// TODO: replace the placeholder with the real TEAMZ WhatsApp number.
+export const WHATSAPP_NUMBER = "918800243842";
+export const WHATSAPP_MESSAGE = "Hi TEAMZ, I'd like to discuss a project.";
+export const WHATSAPP_URL = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(
+  WHATSAPP_MESSAGE
+)}`;
+
 // Focused keyword set: high-intent service + outcome terms.
 export const SITE_KEYWORDS = [
   "product studio",
