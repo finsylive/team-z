@@ -13,10 +13,10 @@ const services = [
       "From marketing sites to full web apps, we design and build fast, scalable products that look sharp and actually convert. Clean code, strong SEO, and a smooth experience on every screen.",
     offerings: [
       "Custom websites and landing pages",
-      "Web apps and dashboards (Next.js, React)",
+      "Web apps and dashboards",
       "E-commerce and storefronts",
       "CMS setup so you can edit content yourself",
-      "Performance, SEO, and Core Web Vitals tuning",
+      "Performance and SEO tuning",
       "Responsive across mobile, tablet, and desktop",
     ],
   },
@@ -26,10 +26,10 @@ const services = [
     description:
       "Native and cross-platform mobile apps built for real users. We take you from idea to a polished app, live on the App Store and Play Store.",
     offerings: [
-      "iOS and Android apps (Flutter, React Native)",
+      "iOS and Android apps",
       "Mobile-first UI and UX design",
-      "API and backend integration",
-      "Auth, payments, and push notifications",
+      "Backend and API integration",
+      "Logins, payments, and push notifications",
       "App Store and Play Store submission",
       "Maintenance and updates after launch",
     ],
@@ -42,7 +42,7 @@ const services = [
     offerings: [
       "UX research and user flows",
       "Wireframes and interactive prototypes",
-      "High-fidelity UI design in Figma",
+      "High-fidelity UI design",
       "Brand identity: logo, colors, typography",
       "Design systems and component libraries",
       "Marketing and social media assets",
@@ -54,12 +54,12 @@ const services = [
     description:
       "We plug AI into your day-to-day so the repetitive work runs itself. Custom workflows, integrations, and assistants tailored to how you actually operate.",
     offerings: [
-      "Workflow automation (n8n, Zapier, custom)",
+      "Custom workflow automation",
       "AI chatbots and support assistants",
       "Lead capture, follow-ups, and CRM sync",
       "Document, email, and content automation",
       "Integrations with your existing tools",
-      "Custom GPT and LLM solutions",
+      "Custom AI assistants tailored to you",
     ],
   },
 ];
